@@ -1,15 +1,11 @@
-# refine-dashboard
-
-<div align="center" style="margin: 30px;">
-    <a href="https://refine.dev">
-    <img alt="refine logo" src="https://refine.ams3.cdn.digitaloceanspaces.com/readme/refine-readme-banner.png">
-    </a>
-</div>
-<br/>
+# Refine Dashboard
 
 This [Refine](https://github.com/refinedev/refine) project was generated with [create refine-app](https://github.com/refinedev/refine/tree/master/packages/create-refine-app).
 
 ## Getting Started
+The source code for an enterprise-grade and production-ready internal tool example named "Refine CRM Dashboard" has been developed using Refine, Ant Design, and GraphQL.
+
+Refine is an open-source React-meta framework specifically designed to meet the requirements of enterprise companies dev teams. It comes with a core package that simplifies app requirements like data handling, authentication, access control, etc.
 
 A React Framework for building internal tools, admin panels, dashboards & B2B apps with unmatched flexibility ✨
 
