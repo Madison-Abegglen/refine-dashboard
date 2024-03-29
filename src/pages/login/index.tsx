@@ -1,5 +1,5 @@
 import { AuthPage } from "@refinedev/antd";
-import { authCredentials } from "../../providers/auth";
+import { authCredentials } from "../../providers";
 
 export const Login = () => {
   return (

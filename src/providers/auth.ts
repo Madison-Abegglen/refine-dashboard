@@ -67,6 +67,7 @@ export const authProvider: AuthBindings = {
     if (error.statusCode === "UNAUTHENTICATED") {
       return {
         logout: true,
+        ...error
       };
     }
 
