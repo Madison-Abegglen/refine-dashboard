@@ -30,9 +30,9 @@ export const authProvider: AuthBindings = {
                     `,
         },
       });
-
+      
       // save accessToken to localStorage
-      localStorage.setItem("access_token", data.login.access_token);
+      localStorage.setItem("access_token", data.login.accessToken);
 
       return {
         success: true,
@@ -40,7 +40,7 @@ export const authProvider: AuthBindings = {
       };
     } catch (e) {
       const error = e as Error;
-
+      
       return {
         success: false,
         error: {
