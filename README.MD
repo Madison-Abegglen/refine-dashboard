@@ -3,19 +3,19 @@
 This [Refine](https://github.com/refinedev/refine) project was generated with [create refine-app](https://github.com/refinedev/refine/tree/master/packages/create-refine-app).
 
 # Features
-**Authentication: Seamless onboarding with secure login and signup functionalities; robust password recovery ensures a smooth authentication experience.
+**Authentication**: Seamless onboarding with secure login and signup functionalities; robust password recovery ensures a smooth authentication experience.
 
-**Authorization: Granular access control regulates user actions, maintaining data security and user permissions.
+**Authorization**: Granular access control regulates user actions, maintaining data security and user permissions.
 
-**Home Page: Dynamic home page showcases interactive charts for key metrics; real-time updates on activities, upcoming events, and a deals chart for business insights.
+**Home Page**: Dynamic home page showcases interactive charts for key metrics; real-time updates on activities, upcoming events, and a deals chart for business insights.
 
-**Companies Page: Complete CRUD for company management and sales processes; detailed profiles with add/edit functions, associated contacts/leads, pagination, and field-specific search.
+**Companies Page**: Complete CRUD for company management and sales processes; detailed profiles with add/edit functions, associated contacts/leads, pagination, and field-specific search.
 
-**Kanban Board: Collaborative board with real-time task updates; customization options include due dates, markdown descriptions, and multi-assignees, dynamically shifting tasks across dashboards.
+**Kanban Board**: Collaborative board with real-time task updates; customization options include due dates, markdown descriptions, and multi-assignees, dynamically shifting tasks across dashboards.
 
-**Account Settings: Personalized user account settings for profile management; streamlined configuration options for a tailored application experience.
+**Account Settings**: Personalized user account settings for profile management; streamlined configuration options for a tailored application experience.
 
-**Responsive: Full responsiveness across devices for consistent user experience; fluid design adapts seamlessly to various screen sizes, ensuring accessibility.
+**Responsive**: Full responsiveness across devices for consistent user experience; fluid design adapts seamlessly to various screen sizes, ensuring accessibility.
 
 ## Getting Started
 The source code for an enterprise-grade and production-ready internal tool example named "Refine CRM Dashboard" has been developed using Refine, Ant Design, and GraphQL.
