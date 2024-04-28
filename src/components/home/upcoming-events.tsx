@@ -4,9 +4,19 @@ import { Text } from "../text";
 import { useState } from "react";
 import UpcomingEventsSkeleton from "../skeleton/upcoming-events";
 import { getDate } from "@/utilities/helpers";
+import { useList } from "@refinedev/core";
+import { DASHBORAD_CALENDAR_UPCOMING_EVENTS_QUERY } from "@/graphql/queries";
 
 const UpcomingEvents = () => {
   const [isLoading, setisLoading] = useState(false);
+
+  const { data, isLoading: eventsLoading } = useList({
+    resource: 'events',
+    pagination: { pageSize: 5 },
+    meta: {
+        gqlQuery: DASHBORAD_CALENDAR_UPCOMING_EVENTS_QUERY
+    }
+  });
 
   return (
     <Card
@@ -39,7 +49,7 @@ const UpcomingEvents = () => {
       ) : (
         <List
           itemLayout="horizontal"
-          dataSource={[]}
+          dataSource={data?.data || []}
           renderItem={(item) => {
             const renderDate = getDate(item.startDate, item.endDate)
 
@@ -48,7 +58,12 @@ const UpcomingEvents = () => {
                 <List.Item.Meta 
                     avatar={<Badge color={item.color} />}
                     title={<Text size="xs">{renderDate}</Text>}
-                    description={<Text ellipsis={{ tooltip: true }} strong>{item.Title}</Text>}
+                    description={
+                        <Text 
+                            ellipsis={{ tooltip: true }} 
+                            strong>
+                                {item.title}
+                        </Text>}
                 />
               </List.Item>
             );
