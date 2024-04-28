@@ -58,7 +58,7 @@ const CurrentUser = () => {
           name={user?.name}
           src={user?.avatarUrl}
           size="default"
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: "pointer" }}
         />
       </Popover>
       {user && (
