@@ -1,4 +1,4 @@
-import { Form, Input, Modal } from "antd";
+import { Form, Input, Modal, Select } from "antd";
 import { CompanyList } from "./list";
 import { useModalForm } from "@refinedev/antd";
 import { useGo } from "@refinedev/core";
@@ -43,6 +43,13 @@ const Create = () => {
             rules={[{ required: true }]}
           >
             <Input placeholder="Please enter company name" />
+          </Form.Item>
+          <Form.Item
+            label='Sales Owner'
+            name='salesOwnerId'
+            rules={[{ required: true }]}
+          >
+            <Select placeholder="Please select a sales owner" />
           </Form.Item>
         </Form>
       </Modal>
