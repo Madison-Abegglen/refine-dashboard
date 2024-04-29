@@ -17,96 +17,97 @@ const DashboardTotalCountCard = ({
   const { primaryColor, secondaryColor, icon, title } =
     totalCountVariants[resource];
 
-    const config: AreaConfig = {
-        data: totalCountVariants[resource].data,
-        xField: 'index',
-        yField: 'value',
-        appendPadding: [1, 0, 0, 0],
-        padding: 0,
-        syncViewPadding: true,
-        autoFit: true,
-        tooltip: false,
-        animation: false,
-        xAxis: false,
-        yAxis: {
-            tickCount: 12,
-            label: {
-                style: {
-                    stroke: 'transparent'
-                }
-            },
-            grid: {
-                line: {
-                    style: {
-                        stroke: 'transparent'
-                    }
-                }
-            }
+  const config: AreaConfig = {
+    data: totalCountVariants[resource].data,
+    xField: "index",
+    yField: "value",
+    appendPadding: [1, 0, 0, 0],
+    padding: 0,
+    syncViewPadding: true,
+    autoFit: true,
+    tooltip: false,
+    animation: false,
+    xAxis: false,
+    yAxis: {
+      tickCount: 12,
+      label: {
+        style: {
+          stroke: "transparent",
         },
-        smooth: true,
+      },
+      grid: {
         line: {
-            color: primaryColor,
+          style: {
+            stroke: "transparent",
+          },
         },
-        areaStyle: () => {
-            return {
-                fill: `l(270) 0:#fff 0.2${secondaryColor} 1:${primaryColor}`
-            }
-        }
-    }
+      },
+    },
+    smooth: true,
+    line: {
+      color: primaryColor,
+    },
+    areaStyle: () => {
+      return {
+        fill: `l(270) 0:#fff 0.2${secondaryColor} 1:${primaryColor}`,
+      };
+    },
+  };
 
   return (
-    <div>
-      <Card
-        style={{ height: "96px", padding: 0 }}
-        bodyStyle={{ padding: "8px 8px 8px 12px" }}
-        size="small"
+    <Card
+      style={{
+        height: "96px",
+        padding: 0
+      }}
+      bodyStyle={{ padding: "8px 8px 8px 12px" }}
+      size="small"
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          whiteSpace: "nowrap",
+        }}
       >
-        <div
+        {icon}
+        <Text size="md" className="secondary" style={{ marginLeft: "8px" }}>
+          {title}
+        </Text>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <Text
+          size="xxxl"
+          strong
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
+            flex: 1,
             whiteSpace: "nowrap",
+            textAlign: "start",
+            marginLeft: "48px",
+            fontVariantNumeric: "tabular-nums",
           }}
         >
-            {icon}
-            <Text size="md" className="secondary" style={{ marginLeft: "8px" }}>
-                {title}
-            </Text>
-        </div>
-        
-        <div
-            style={{
-                display: "flex",
-                justifyContent: "space-between"
-            }}
-        >
-            <Text
-                size="xxxl"
-                strong
-                style={{
-                    flex: 1,
-                    whiteSpace: 'nowrap',
-                    textAlign: 'start',
-                    marginLeft: '48px',
-                    fontVariantNumeric: 'tabular-nums'
-                }}
-            >
-                {isLoading ? (
-                    <Skeleton.Button 
-                        style={{
-                            marginTop: '8px',
-                            width: '74px'
-                        }}
-                    />
-                ) : (
-                    totalCount
-                )}
-            </Text>
-            <Area {...config} style={{ width: '50%' }} />
-        </div>
-      </Card>
-    </div>
+          {isLoading ? (
+            <Skeleton.Button
+              style={{
+                marginTop: "8px",
+                width: "74px",
+              }}
+            />
+          ) : (
+            totalCount
+          )}
+        </Text>
+        <Area {...config} style={{ width: "50%" }} />
+      </div>
+    </Card>
   );
 };
 
