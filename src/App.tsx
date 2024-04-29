@@ -60,6 +60,7 @@ function App() {
                       <Route path="/companies">
                         <Route index element={<CompanyList />} />
                         <Route path='new' element={<Create />} />
+                        <Route path='edit/:id' element={<Create />} />
                       </Route>
                   </Route>
                 </Routes>
