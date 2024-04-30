@@ -11,6 +11,7 @@
     "@antv/g": "^6.0.3",
     "@antv/g2": "^5.1.19",
     "@antv/g2-extension-plot": "^0.2.0",
+    "@dnd-kit/core": "^6.1.0",
     "@refinedev/antd": "^5.37.4",
     "@refinedev/cli": "^2.16.21",
     "@refinedev/core": "^4.47.1",
