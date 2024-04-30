@@ -12,11 +12,14 @@ import { TASKS_QUERY, TASK_STAGES_QUERY } from "@/graphql/queries";
 import { TaskStage } from "@/graphql/schema.types";
 import { TasksQuery } from "@/graphql/types";
 import { DragEndEvent } from "@dnd-kit/core";
-import { useList, useUpdate } from "@refinedev/core";
+import { useList, useUpdate, useNavigation } from "@refinedev/core";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import React from "react";
 
-const List = () => {
+const List = ({children}: React.PropsWithChildren) => {
+  // used for replacing the path when adding new card
+  const { replace } = useNavigation();
+
   // hook for getting stages data
   const { data: stages, isLoading: isLoadingStages } = useList<TaskStage>({
     resource: 'taskStages',
@@ -84,7 +87,10 @@ const List = () => {
   }, [stages, tasks])
 
   // Add card handler
-  const handleAddCard = (args: { stageId: string }) => {}
+  const handleAddCard = (args: { stageId: string }) => {
+    const path = args.stageId === 'unassigned' ? '/tasks/new' : `/tasks/new?stageId=${args.stageId}`
+    replace(path);
+  }
 
   // Updating task stage after dragged & dropped handler
   const handleOnDragEnd = (event: DragEndEvent) => {
