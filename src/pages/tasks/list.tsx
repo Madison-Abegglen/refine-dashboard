@@ -1,3 +1,5 @@
+import { KanbanColumnSkeleton, ProjectCardSkeleton } from "@/components";
+import { KanbanAddCardButton } from "@/components/tasks/kanban/add-card-button";
 import {
   KanbanBoardContainer,
   KanbanBoard,
@@ -76,6 +78,10 @@ const List = () => {
 
   const handleAddCard = (args: { stageId: string }) => {}
 
+  const isLoading = isLoadingStages || isLoadingtasks 
+
+  if(isLoading) return <PageSkeleton />
+
   return (
     <>
       <KanbanBoardContainer>
@@ -104,6 +110,24 @@ const List = () => {
               />
             )}
           </KanbanColumn>
+          {taskStages.columns?.map((column) => (
+            <KanbanColumn
+              key={column.id}
+              id={column.id}
+              title={column.title}
+              count={column.tasks.length}
+              onAddClick={() => handleAddCard({ stageId: column.id })}
+            >
+              {!isLoading && column.tasks.map((task) => (
+                <KanbanItem key={task.id} id={task.id} data={task}>
+                  <ProjectCardMemo 
+                    {...task}
+                    dueDate={task.dueDate || undefined}
+                  />
+                </KanbanItem>
+              ))}
+            </KanbanColumn>
+          ))}
         </KanbanBoard>
       </KanbanBoardContainer>
     </>
@@ -111,3 +135,20 @@ const List = () => {
 };
 
 export default List;
+
+const PageSkeleton = () => {
+  const columnCount = 6;
+  const itemCount = 4;
+
+  return (
+    <KanbanBoardContainer>
+      {Array.from({ length: columnCount }).map((_, index) => (
+        <KanbanColumnSkeleton>
+          {Array.from({length: itemCount}).map((_, index) => (
+            <ProjectCardSkeleton key={index} />
+          ))}
+        </KanbanColumnSkeleton>
+      ))}
+    </KanbanBoardContainer>
+  )
+}
