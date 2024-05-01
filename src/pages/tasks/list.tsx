@@ -172,6 +172,7 @@ const List = ({children}: React.PropsWithChildren) => {
           ))}
         </KanbanBoard>
       </KanbanBoardContainer>
+      {children}
     </>
   );
 };
